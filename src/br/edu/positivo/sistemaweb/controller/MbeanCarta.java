@@ -50,7 +50,7 @@ public class MbeanCarta {
 	public void salvar() {
 		try {
 			Edicao edicaoSelecionada = edicaoService.getByID(idEdicao);
-			java.lang.String caminhoDaImagem = salvarFoto(foto);
+			String caminhoDaImagem = salvarFoto(foto);
 
 			Carta carta = new Carta();
 			carta.setId(id);

@@ -13,14 +13,14 @@
 		<h1>Magic The Gathering</h1>
 		<form jsf:id="form">
 		<div class="card-columns">
-			<ui:repeat value="#{mbeanIndex.clientes}" var="cliente">
+			<ui:repeat value="#{mbeanIndex.cartas}" var="carta">
 			<div class="card">
-				<img src="CarregarImagemCliente?idCliente=#{cliente.id}" class="card-img-top" alt="..."/>
+				<img src="CarregarImagemCarta?id=#{carta.id}" class="card-img-top" alt="..."/>
 				<div class="card-body">
-					<h5 class="card-title"><h:outputText value="#{cliente.nome}" /></h5>
-					<p class="card-text"><h:outputText value="#{cliente.login}" /></p>
+					<h5 class="card-title"><h:outputText value="#{carta.nome}" /></h5>
+					<p class="card-text"><h:outputText value="#{carta.edicao.nome}" /></p>
 					<p class="card-text">
-						<h:commandLink action="#{mbeanDetalhe.carregar(cliente)}"
+						<h:commandLink action="#{mbeanDetalhe.carregar(carta)}"
 							value="Detalhes"
 							styleClass="btn btn-primary"></h:commandLink>
 					</p>

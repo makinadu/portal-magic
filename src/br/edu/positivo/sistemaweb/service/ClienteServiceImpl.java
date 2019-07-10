@@ -11,7 +11,7 @@ import br.edu.positivo.sistemaweb.entity.Cliente;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRED) 
-public class ClienteServiceImpl extends BasicServiceCliente<Cliente> implements ClienteService {
+public class ClienteServiceImpl extends BasicServiceImpl<Cliente> implements ClienteService {
 
 
 	@SuppressWarnings("unchecked")

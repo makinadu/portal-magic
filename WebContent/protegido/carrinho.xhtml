@@ -20,11 +20,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<ui:repeat value="#{mbeanCarrinho.itens}" var="item">
+						<ui:repeat value="#{mbeanCarrinho.carrinho.itens}" var="item">
 						<tr>
 							<td><h:outputText value="#{item.id}"></h:outputText></td>
 							<td><h:outputText value="#{item.quantidade}"></h:outputText></td>
-							<td><h:outputText value="#{item.cliente.nome}"></h:outputText></td>							
+							<td><h:outputText value="#{item.carta.nome}"></h:outputText></td>							
 						</tr>
 						</ui:repeat>			
 					</tbody>

@@ -11,15 +11,14 @@
 		<ui:define name="conteudo">
 		<form jsf:id="formDetalhe">
 		<h1>Detalhes</h1>
-		
-		
-		<img src="CarregarImagemCliente?idCliente=#{mbeanDetalhe.cliente.id}"
-		class="card-img-top" />
-		<h3><h:outputText value="#{mbeanDetalhe.cliente.nome}" /></h3>
-		
-		<h:commandLink action="#{mbeanCarrinho.adicionar(mbeanDetalhe.cliente)}"
-							value="Comprar"
-							styleClass="btn btn-primary"></h:commandLink>
+				
+		<img src="CarregarImagemCarta?id=#{mbeanDetalhe.carta.id}"
+		class="img-fluid" />
+		<h3><h:outputText value="#{mbeanDetalhe.carta.nome}" /></h3>
+		<!-- 
+		<h:commandLink action="#{mbeanCarrinho.adicionar(mbeanDetalhe.carta)}"
+							value="Adicionar ao Carrinho"
+							styleClass="btn btn-primary"></h:commandLink> -->
 		</form>
 		</ui:define>
 	

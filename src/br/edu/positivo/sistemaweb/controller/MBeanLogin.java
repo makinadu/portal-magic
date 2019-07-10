@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import br.edu.positivo.sistemaweb.entity.Cliente;
 import br.edu.positivo.sistemaweb.service.ClienteService;
 
+
 @SuppressWarnings("deprecation")
 @ManagedBean(name="mbeanLogin")
 @RequestScoped
@@ -39,6 +40,18 @@ public class MBeanLogin {
 			return "login.jsf?error=true";
 		}
 	}	
+	
+	public String logout() {
+		try {
+			ExternalContext externalContext = FacesContext.
+					getCurrentInstance().getExternalContext();
+			((HttpServletRequest)externalContext.getRequest()).
+				getSession().setAttribute("cliente", null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "index.jsf";
+	}
 
 	public String getEmail() {
 		return email;

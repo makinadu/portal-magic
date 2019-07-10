@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import br.edu.positivo.sistemaweb.entity.Perfil;
 
 @Stateless
-public class PerfilServiceImpl extends BasicServicePerfil<Perfil> implements PerfilService {
+public class PerfilServiceImpl extends BasicServiceImpl<Perfil> implements PerfilService {
 
 	@SuppressWarnings("unchecked")
 	@Override

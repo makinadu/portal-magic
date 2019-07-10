@@ -11,7 +11,7 @@ import br.edu.positivo.sistemaweb.entity.Edicao;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRED) 
-public class CartaServiceImpl extends BasicService<Carta> implements CartaService{
+public class CartaServiceImpl extends BasicServiceImpl<Carta> implements CartaService{
 
 
 	@SuppressWarnings("unchecked")
@@ -21,6 +21,7 @@ public class CartaServiceImpl extends BasicService<Carta> implements CartaServic
 				.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Carta> listarPorEdicao(Edicao edicao) {
 		return em.createQuery("select c from Carta c WHERE c.edicao = :edicao")

@@ -4,6 +4,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import br.edu.positivo.sistemaweb.entity.Carta;
 import br.edu.positivo.sistemaweb.entity.Cliente;
 import br.edu.positivo.sistemaweb.service.ClienteService;
 
@@ -15,19 +16,19 @@ public class MbeanDetalhe {
 	@EJB
 	ClienteService clienteService;
 
-	private Cliente cliente;
+	private Carta carta;
 	
-	public String carregar(Cliente cliente) {
-		this.cliente = cliente;
+	public String carregar(Carta carta) {
+		this.carta = carta;
 		return "detalhe.jsf";
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Carta getCarta() {
+		return carta;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setCarta(Carta carta) {
+		this.carta = carta;
 	}
 
 }

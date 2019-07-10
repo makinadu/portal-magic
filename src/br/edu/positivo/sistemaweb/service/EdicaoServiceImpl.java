@@ -15,7 +15,7 @@ import br.edu.positivo.sistemaweb.entity.Edicao;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRED) 
-public class EdicaoServiceImpl extends BasicServiceEdicao<Edicao> implements EdicaoService {
+public class EdicaoServiceImpl extends BasicServiceImpl<Edicao> implements EdicaoService {
 
 
 	@SuppressWarnings("unchecked")

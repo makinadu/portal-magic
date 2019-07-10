@@ -10,15 +10,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.TransactionScoped;
 
-import br.edu.positivo.sistemaweb.entity.Carta;
-import br.edu.positivo.sistemaweb.entity.Cliente;
-import br.edu.positivo.sistemaweb.entity.Edicao;
-import br.edu.positivo.sistemaweb.entity.Perfil;
-
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRED) 
-public class BasicServicePerfil<T>{
+public class BasicServiceImpl<T extends Object> implements BasicService<T>{
 
 	@PersistenceContext(unitName = "sistemaweb")
 	protected EntityManager em;
@@ -33,11 +28,13 @@ public class BasicServicePerfil<T>{
 		em.remove(em.merge(object));
 	}
 
-	public List<Perfil> listar() {
-		// TODO Auto-generated method stub
+	public List<T> listar(){
 		return null;
-		
 	}
 	
-	
+	@SuppressWarnings("hiding")
+	@Override
+	public <T> T buscarPorChave(Class<T> type, Object object) {
+		return em.find(type, object);
+	}
 }
