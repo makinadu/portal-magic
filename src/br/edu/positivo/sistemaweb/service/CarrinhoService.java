@@ -11,10 +11,6 @@ public interface CarrinhoService {
 
 	public Carrinho adicionarItem(Carrinho carrinho, ItemCarrinho item);
 	
-	public Carrinho finalizarCompra(Carrinho carrinho);
-//	
-//	public List<Carta> listar();
-//	public List<Carta> listarPorEdicao(Edicao edicao);
-//	public void excluir(Carta carta);
+	public Carrinho finalizarCompra(Carrinho carrinho);//	
 	
 }

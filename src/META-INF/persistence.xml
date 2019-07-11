@@ -7,8 +7,6 @@
 
 		<jta-data-source>java:/sistemaweb</jta-data-source>
 
-		<class>br.edu.positivo.sistemaweb.entity.Cliente</class>
-
 		<properties>
 			<property name="hibernate.dialect" 
 				value="org.hibernate.dialect.H2Dialect"/>

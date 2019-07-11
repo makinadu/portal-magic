@@ -8,7 +8,9 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import javax.servlet.http.HttpServletRequest;
 
 import br.edu.positivo.sistemaweb.entity.Carrinho;
@@ -23,28 +25,15 @@ import br.edu.positivo.sistemaweb.service.CarrinhoService;
 @SessionScoped
 public class MBeanCarrinho {
 
-    @Inject
-    private HttpServletRequest request;
-	
 	@EJB
 	CarrinhoService carrinhoService;
 	
 	private Carrinho carrinho = new Carrinho();
 	
+	private ItemCarrinho item = new ItemCarrinho();
+	
 	private List<ItemCarrinho> itens = new ArrayList<>();
 	
-	public String adicionar(Carta carta, Integer quantidade) {
-		
-		ItemCarrinho item = new ItemCarrinho();
-		item.setQuantidade(quantidade);
-		item.setCarta(carta);
-		
-		carrinho.setCliente((Cliente) request.getSession().getAttribute("cliente"));
-		
-		carrinhoService.adicionarItem(carrinho, item);
-		
-		return "/protegido/carrinho.jsf?faces-redirect=true";
-	}
 
 	public List<ItemCarrinho> getItens() {
 		return itens;
@@ -62,5 +51,32 @@ public class MBeanCarrinho {
 		return carrinho;
 	}
 
+	public ItemCarrinho getItem() {
+		return item;
+	}
 
+	public void setItem(ItemCarrinho item) {
+		this.item = item;
+	}
+	
+	public void valueChangeListener(ValueChangeEvent e){
+		item.setQuantidade(new Integer(e.getNewValue().toString()));
+		System.out.println("Quantidade: " + item.getQuantidade());
+	}
+	
+	public String adicionar(Carta carta) {
+		
+		ExternalContext externalContext = FacesContext.
+				getCurrentInstance().getExternalContext();
+		Cliente cliente = (Cliente) ((HttpServletRequest)externalContext.getRequest()).
+			getSession().getAttribute("cliente");
+		
+		item.setCarta(carta);
+		carrinho.setCliente(cliente);
+		carrinhoService.adicionarItem(carrinho, item);
+		return "/protegido/carrinho.jsf?faces-redirect=true";
+	}
+
+
+	
 }

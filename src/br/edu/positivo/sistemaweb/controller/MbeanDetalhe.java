@@ -6,6 +6,7 @@ import javax.faces.bean.SessionScoped;
 
 import br.edu.positivo.sistemaweb.entity.Carta;
 import br.edu.positivo.sistemaweb.entity.Cliente;
+import br.edu.positivo.sistemaweb.service.CartaService;
 import br.edu.positivo.sistemaweb.service.ClienteService;
 
 @SuppressWarnings("deprecation")
@@ -14,7 +15,7 @@ import br.edu.positivo.sistemaweb.service.ClienteService;
 public class MbeanDetalhe {
 
 	@EJB
-	ClienteService clienteService;
+	CartaService service;
 
 	private Carta carta;
 	
